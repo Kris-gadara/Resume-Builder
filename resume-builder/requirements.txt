@@ -1,0 +1,7 @@
+python-docx
+pyyaml
+openai
+reportlab
+google-generativeai
+streamlit
+watchdog
