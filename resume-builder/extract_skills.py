@@ -5,7 +5,7 @@ import os
 import google.generativeai as genai
 
 # Configure Gemini API. The key should be set in the GEMINI_API_KEY environment variable.
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=os.getenv("AQ.Ab8RN6KXsZIyxfjMWl4z1udhwhYlhlRV7qunPSszAyOwYjGahA"))
 
 def extract_skills_from_job(job_description, current_skills, max_retries=3, retry_delay=2):
     """
