@@ -1,67 +1,66 @@
 # AI Resume Builder
 
-An intelligent, web-based Resume Builder that uses the Google Gemini API to dynamically customize and enhance your resume's technical skills based on any target job description. The application generates both polished Word (`.docx`) and high-quality PDF files.
+A Streamlit-based resume generator that helps you create a polished, tailored resume from a web form. The app uses the Google Gemini API to improve and reorganize your skills based on a target job description, then generates both a Word document and a PDF.
 
-## Features
+## What this project does
 
-- 🧠 **AI-Powered Skill Reorganization**: Automatically aligns your skills to match the target job description using the Gemini API.
-- 🎨 **Beautiful UI**: Simple, modern web interface built with Streamlit.
-- 📝 **Compact Word Document Generation**: Programmatically outputs a well-formatted `.docx` file using `python-docx`.
-- 📄 **Print-Ready PDF Compilation**: Converts and structures the resume into a print-ready PDF using `ReportLab`.
-- 📥 **Real-time Previews and Downloads**: View your PDF inline in the browser and download the generated files instantly.
+- 🧠 Enhances your skills for a specific job description using Gemini AI.
+- 📝 Collects your profile, experience, education, projects, and summary from a simple form.
+- 📄 Generates a DOCX resume and a PDF version for download.
+- 🌐 Runs entirely through the Streamlit frontend.
 
----
-
-## Project Structure
+## Project structure
 
 ```plaintext
 Resume-Builder/
-├── .gitignore
 ├── README.md
 └── resume-builder/
-    ├── app.py                     # Streamlit web interface entrypoint
-    ├── main.py                     # CLI entrypoint for the application
-    ├── extract_skills.py           # Logic for extracting/enhancing skills using Gemini API
-    ├── docx_utils.py               # Formatting helpers for Word documents
-    ├── generate_resume.py          # Logic for building the DOCX resume
-    ├── generate_pdfs.py            # PDF generation logic using ReportLab
-    ├── resume_skeleton_example.yaml # Example structure for resume data
-    └── requirements.txt            # Python dependencies
+    ├── app.py                     # Main Streamlit web app
+    ├── extract_skills.py          # Gemini-based skill enhancement
+    ├── docx_utils.py              # Word document helpers
+    ├── generate_resume.py         # Resume DOCX generation
+    ├── generate_pdfs.py           # PDF generation
+    ├── resume_skeleton.yaml       # Example resume structure
+    └── requirements.txt           # Python dependencies
 ```
 
----
+## Getting started
 
-## Getting Started
+### 1. Set your Gemini API key
 
-### **1. Set up Environment Variables**
-Ensure you have your Gemini API Key. You can set it in your environment:
-- **Windows (PowerShell)**:
+Use either of these options:
+
+- Windows PowerShell:
   ```powershell
   $env:GEMINI_API_KEY="your-gemini-api-key"
   ```
-- **Linux/macOS**:
+- Linux/macOS:
   ```bash
   export GEMINI_API_KEY="your-gemini-api-key"
   ```
 
-### **2. Install Dependencies**
-Navigate to the `resume-builder` folder and install dependencies:
+You can also enter the key directly in the Streamlit sidebar when the app starts.
+
+### 2. Install dependencies
+
 ```bash
 cd resume-builder
 pip install -r requirements.txt
 ```
 
-### **3. Run the Web Application**
-Start the Streamlit server:
+### 3. Run the app
+
 ```bash
 streamlit run app.py
 ```
-Open **[http://localhost:8501](http://localhost:8501)** in your browser.
 
----
+Open http://localhost:8501 in your browser.
 
-## Contributing
-Feel free to fork this repository, open issues, and submit pull requests!
+## Notes
+
+- This project is intentionally web-only. There is no terminal-based resume generation flow anymore.
+- The generated files are saved in the output folder inside the project.
 
 ## License
-Licensed under the MIT License.
+
+MIT

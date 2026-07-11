@@ -1,96 +1,47 @@
 # Resume Builder
 
-This project provides a modular approach to creating a professional resume using Python and `python-docx`. It supports enhancing skills based on job descriptions using OpenAI's API, organizing them into categories, and generating a polished `.docx` or `.pdf` resume document.
-
----
+This project is now a Streamlit-only resume generator. You fill in your information in the web UI, provide a job description, and the app generates a tailored resume as a Word document and PDF.
 
 ## Features
 
-- **Skill Enhancement**: Extracts and enhances skills based on a provided job description.
-- **Customizable Resume**: Uses a YAML skeleton file for customizable sections.
-- **Compact Formatting**: Generates a Word document with professional formatting, including hyperlinks and section-specific designs.
-- **PDF Export**: Optionally convert the `.docx` resume to `.pdf` format using **ReportLab**.
-- **Flexible CLI Usage**: Accepts job descriptions and other options via command-line arguments for dynamic resume generation.
+- **AI-based skill enhancement** using the Gemini API.
+- **Web-first resume creation** through a simple Streamlit interface.
+- **DOCX and PDF export** for download.
+- **No terminal-based generation flow** remains in the project.
 
----
-
-## Project Structure
+## Project structure
 
 ```plaintext
-resume_builder/
-├── main.py                     # Entry point for the application
-├── extract_skills.py           # Logic for extracting and enhancing skills
-├── docx_utils.py               # Utility functions for Word document formatting
-├── generate_resume.py          # Logic for generating the resume
-├── generate_pdfs.py            # PDF generation logic using ReportLab
-├── resume_skeleton_example.yaml # Example YAML file for the resume skeleton
-├── requirements.txt            # Required Python libraries
-└── README.md                   # Instructions for using the application
+resume-builder/
+├── app.py                     # Main Streamlit web app
+├── extract_skills.py          # Gemini-based skill enhancement
+├── docx_utils.py              # Word document helpers
+├── generate_resume.py         # Resume DOCX generation
+├── generate_pdfs.py           # PDF generation
+├── requirements.txt           # Python dependencies
+└── README.md                  # Project instructions
 ```
-
----
 
 ## Installation
 
-### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/resume-builder.git
 cd resume-builder
-```
-
-### **2. Install Dependencies**
-Ensure you have Python 3.8+ installed. Install required libraries using:
-```bash
 pip install -r requirements.txt
 ```
 
----
+## Run the app
 
-### PDF Generation Setup
+```bash
+streamlit run app.py
+```
 
-PDF generation is handled using **ReportLab**, which is already included in the dependencies. No additional external tools like Pandoc or pdflatex are required.
+Open http://localhost:8501 in your browser.
 
----
+## Notes
 
-## Usage
-
-### 1. **Prepare the YAML Skeleton**:
-   - Locate the `resume_skeleton_example.yaml` file in the project directory.
-   - Update it with your personal details, education, experience, projects, and skills.
-   - Rename it to `resume_skeleton.yaml`:
-     ```bash
-     mv resume_skeleton_example.yaml resume_skeleton.yaml
-     ```
-
-### 2. **Run the Application Using Command-Line Arguments**:
-
-   - Use the following arguments to generate the resume:
-     - `-j/--job_description`: Provide the job description as a string.
-     - `-o/--output`: Specify the output file name for the generated resume (default is `enhanced_resume.docx`).
-     - `--generate_pdf`: Include this flag to generate a PDF version of the resume.
-
-   #### Example Usage:
-   - Generate a resume with a job description:
-     ```bash
-     python main.py -j "We need a Data Scientist with Python, SQL, and Machine Learning skills." --generate_pdf
-     ```
-   - Specify a custom output file name:
-     ```bash
-     python main.py -j "Looking for an ML Engineer with experience in PyTorch and AWS." -o "custom_resume.docx" --generate_pdf
-     ```
-
-### 3. **Output**:
-   - The generated resume will be saved in the project directory as a `.docx` file.
-   - If the `--generate_pdf` flag is used, a corresponding `.pdf` file will also be created.
-
----
-
-## Contributing
-
-Feel free to fork this repository and contribute by submitting a pull request. For major changes, please open an issue first to discuss what you'd like to change.
-
----
+- Set your Gemini API key in the environment or in the Streamlit sidebar before generating a resume.
+- Generated files are saved in the output folder inside the project.
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
